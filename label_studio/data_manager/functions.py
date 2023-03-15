@@ -184,6 +184,17 @@ def get_all_columns(project, *_):
             }
         },
         {
+            'id': 'last_annotation_at',
+            'title': 'Last completed at',
+            'type': 'Datetime',
+            'target': 'tasks',
+            'help': 'Last annotation completed at',
+            'visibility_defaults': {
+                'explore': False,
+                'labeling': False
+            }
+        },
+        {
             'id': 'predictions_score',
             'title': "Prediction score",
             'type': "Number",
