@@ -422,6 +422,11 @@ export default types
         }
       });
 
+      hotkeys.addNamed("region:visibility-all", () => {
+        const { selected } = self.annotationStore;
+        selected.regionStore.toggleVisibility();
+      });
+
       hotkeys.addNamed("annotation:undo", () => {
         const annotation = self.annotationStore.selected;
 
