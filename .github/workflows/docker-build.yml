@@ -19,7 +19,7 @@ on:
 
 env:
   DOCKER_CLI_EXPERIMENTAL: enabled
-  IMAGE_NAME: "${{ vars.DOCKERHUB_ORG }}/label-studio"
+  IMAGE_NAME: "pintufat/label-studio"
   DOCKER_IMAGE_TAG_CHECK_NAME: "Docker image tag"
 
 jobs:
@@ -106,7 +106,7 @@ jobs:
           file: Dockerfile
           platforms: linux/amd64,linux/arm64
           push: ${{ steps.actor-membership.outputs.active == 'active' }}
-          tags: ${{ env.IMAGE_NAME }}:${{ steps.version.outputs.image_version }},${{ env.IMAGE_NAME }}:${{ steps.version.outputs.build_version }}
+          tags: ${{ env.IMAGE_NAME }}:develop,${{ env.IMAGE_NAME }}:${{ steps.version.outputs.build_version }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
           
