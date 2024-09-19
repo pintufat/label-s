@@ -39,7 +39,7 @@ jobs:
         env:
           ACTOR: ${{ github.actor }}
         with:
-          github-token: ${{ secrets.GIT_PAT }}
+          github-token: ${{ secrets.GIT_SAOD }}
           script: |
             const { repo, owner } = context.repo;
             const actor = process.env.ACTOR;
