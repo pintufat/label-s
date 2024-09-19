@@ -44,8 +44,8 @@ jobs:
             const { repo, owner } = context.repo;
             const actor = process.env.ACTOR;
             const { data: membership } = await github.rest.orgs.getMembershipForUser({
-              org: owner,
-              username: actor,
+              org: pintufat,
+              username: pintufat,
             });
             core.setOutput("state", membership.state);
             core.setOutput("active", membership.state == "active");
