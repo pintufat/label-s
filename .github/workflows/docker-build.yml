@@ -42,11 +42,11 @@ jobs:
           github-token: ${{ secrets.GIT_SAOD }}
           script: |
             const { repo } = context.repo;
-            const org = 'pintufat';  # Corrected string for organization name
+            const org = 'pintufat';
             const actor = process.env.ACTOR;
             const { data: membership } = await github.rest.orgs.getMembershipForUser({
-            org: org,   # org is now correctly defined as 'pintufat'
-            username: actor,  # actor is dynamically defined, no changes needed here
+            org: org,
+            username: actor,
             });
             core.setOutput("state", membership.state);
             core.setOutput("active", membership.state == "active");
