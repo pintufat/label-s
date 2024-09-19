@@ -105,10 +105,11 @@ jobs:
           context: .
           file: Dockerfile
           platforms: linux/amd64,linux/arm64
-          push: ${{ steps.actor-membership.outputs.active }}
+          push: ${{ steps.actor-membership.outputs.active == 'active' }}
           tags: ${{ env.IMAGE_NAME }}:${{ steps.version.outputs.image_version }},${{ env.IMAGE_NAME }}:${{ steps.version.outputs.build_version }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          
 
       - name: Create Docker image tag Check
         uses: actions/github-script@v7
