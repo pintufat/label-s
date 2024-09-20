@@ -389,6 +389,6 @@ def file_exists_in_storage(response, exists=True, file_path=None):
         export = Export.objects.get(id=export_id)
         file_path = export.file.path
 
-    print(f"Checking file path: {file_path}")
-    
+    print(f'Checking file path: {file_path}')
+
     assert os.path.isfile(file_path) == exists
