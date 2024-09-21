@@ -5,19 +5,18 @@ import logging
 import os
 import shutil
 from copy import deepcopy
+from datetime import datetime
 
 import ujson as json
-from django.utils import datetime
+from core import version
+from core.feature_flags import flag_set
+from core.utils.common import load_func
+from core.utils.io import get_all_files_from_dir, get_temp_dir, path_to_open_binary_file
 from django.conf import settings
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.translation import gettext_lazy as _
-
-from core import version
-from core.feature_flags import flag_set
-from core.utils.common import load_func
-from core.utils.io import get_all_files_from_dir, get_temp_dir, path_to_open_binary_file
 from label_studio_sdk.converter import Converter
 from tasks.models import Annotation
 
