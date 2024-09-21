@@ -7,7 +7,7 @@ import shutil
 from copy import deepcopy
 
 import ujson as json
-from django.utils import timezone
+from django.utils import datetime
 from django.conf import settings
 from django.db import models
 from django.db.models.signals import post_save
@@ -150,7 +150,7 @@ class DataExport(object):
         """
 
         # prepare for saving
-        now = timezone.now()
+        now = datetime.now()
         data = json.dumps(tasks, ensure_ascii=False)
         md5 = hashlib.md5(json.dumps(data).encode('utf-8')).hexdigest()   # nosec
         name = 'project-' + str(project.id) + '-at-' + now.strftime('%Y-%m-%d-%H-%M') + f'-{md5[0:8]}'
