@@ -5,7 +5,8 @@ import logging
 import os
 import shutil
 from copy import deepcopy
-from datetime import datetime
+from django.utils import timezone
+
 
 import ujson as json
 from core import version
