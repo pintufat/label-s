@@ -149,7 +149,7 @@ class DataExport(object):
         """
 
         # prepare for saving
-        now = datetime.now()
+        now = timezone.now()
         data = json.dumps(tasks, ensure_ascii=False)
         md5 = hashlib.md5(json.dumps(data).encode('utf-8')).hexdigest()   # nosec
         name = 'project-' + str(project.id) + '-at-' + now.strftime('%Y-%m-%d-%H-%M') + f'-{md5[0:8]}'
